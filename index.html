@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="sindadosApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SINDADOS-BA</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body ng-controller="PaginaInicialController">
+  <header class="cabecalho-do-site">
+    <h1>SINDADOS-BA</h1>
+    <p>Sindicato dos Trabalhadores de Tecnologia da Informação da Bahia</p>
+  </header>
+
+  <main class="conteudo-principal">
+    <section class="secao-da-pagina" aria-labelledby="titulo-avisos">
+      <h2 id="titulo-avisos">Avisos</h2>
+      <p>Clique em um botão para ver cada tipo de notificação. Ela fecha sozinha em 4 segundos.</p>
+      <div class="grupo-de-botoes-de-aviso">
+        <button type="button" class="botao-de-aviso botao-de-aviso-{{ botao.tipo }}"
+                ng-repeat="botao in botoesDeAviso"
+                ng-click="dispararAviso(botao)">{{ botao.rotulo }}</button>
+      </div>
+    </section>
+
+    <section class="secao-da-pagina" aria-labelledby="titulo-informacoes">
+      <h2 id="titulo-informacoes">Informações da categoria</h2>
+      <sind-accordion itens="itensDoAcordeao" rotulo="Informações da categoria"></sind-accordion>
+    </section>
+
+    <section class="secao-da-pagina" aria-labelledby="titulo-homologacoes">
+      <h2 id="titulo-homologacoes">Homologações</h2>
+      <ul class="lista-de-homologacoes">
+        <li class="homologacao" ng-repeat="homologacao in homologacoesDaPaginaAtual">
+          <strong class="homologacao-numero">{{ homologacao.numero }}</strong>
+          <span class="homologacao-empresa">{{ homologacao.empresa }}</span>
+          <span class="homologacao-data">{{ homologacao.data }}</span>
+          <span class="homologacao-situacao">{{ homologacao.situacao }}</span>
+        </li>
+      </ul>
+      <sind-pagination total-paginas="totalPaginas"
+                       pagina-atual="paginaAtual"
+                       on-page-change="carregarPagina(pagina)"
+                       rotulo="Paginação das homologações"></sind-pagination>
+    </section>
+  </main>
+
+  <footer class="rodape-do-site">
+    <p>Atividade de AngularJS. Todos os dados desta página são fictícios.</p>
+  </footer>
+
+  <sind-toast></sind-toast>
+
+  <script src="lib/angular.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/toast.service.js"></script>
+  <script src="js/sind-toast.directive.js"></script>
+  <script src="js/sind-accordion.directive.js"></script>
+  <script src="js/sind-pagination.directive.js"></script>
+  <script src="js/pagina-inicial.controller.js"></script>
+</body>
+</html>

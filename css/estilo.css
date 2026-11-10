@@ -1,0 +1,252 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  color: #1f2933;
+  background: #f3f6f9;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 3px solid #0b5ed7;
+  outline-offset: 2px;
+}
+
+.cabecalho-do-site {
+  padding: 1.5rem 1rem;
+  color: #ffffff;
+  background: #0b3d6b;
+}
+
+.cabecalho-do-site h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.cabecalho-do-site p {
+  margin: 0.25rem 0 0;
+}
+
+.conteudo-principal {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.secao-da-pagina {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #ffffff;
+  border: 1px solid #d5dde5;
+  border-radius: 8px;
+}
+
+.secao-da-pagina h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+.grupo-de-botoes-de-aviso {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.botao-de-aviso {
+  padding: 0.7rem 1rem;
+  color: #ffffff;
+  border: 0;
+  border-radius: 6px;
+}
+
+.botao-de-aviso-sucesso {
+  background: #1b7f3b;
+}
+
+.botao-de-aviso-erro {
+  background: #b42318;
+}
+
+.botao-de-aviso-urgente {
+  color: #1f2933;
+  background: #f5b301;
+}
+
+.toast-notificacao {
+  position: fixed;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.toast-notificacao-sucesso {
+  background: #1b7f3b;
+}
+
+.toast-notificacao-erro {
+  background: #b42318;
+}
+
+.toast-notificacao-urgente {
+  color: #1f2933;
+  background: #f5b301;
+}
+
+.toast-notificacao-botao-fechar {
+  padding: 0 0.4rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: inherit;
+  background: transparent;
+  border: 0;
+}
+
+.acordeao-item {
+  border: 1px solid #d5dde5;
+  border-radius: 6px;
+}
+
+.acordeao-item + .acordeao-item {
+  margin-top: 0.5rem;
+}
+
+.acordeao-titulo {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.acordeao-botao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  text-align: left;
+  color: inherit;
+  background: #eef3f8;
+  border: 0;
+  border-radius: 6px;
+}
+
+.acordeao-item-aberto .acordeao-botao {
+  background: #dbe8f5;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.acordeao-icone {
+  flex: none;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s;
+}
+
+.acordeao-icone-aberto {
+  transform: rotate(-135deg);
+}
+
+.acordeao-painel {
+  padding: 0.8rem 1rem;
+}
+
+.lista-de-homologacoes {
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.homologacao {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid #e3e9ef;
+}
+
+.paginacao-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.paginacao-botao {
+  min-width: 2.5rem;
+  padding: 0.5rem 0.8rem;
+  color: #0b3d6b;
+  background: #ffffff;
+  border: 1px solid #9fb3c8;
+  border-radius: 6px;
+}
+
+.paginacao-botao-ativo {
+  color: #ffffff;
+  font-weight: 700;
+  background: #0b3d6b;
+  border-color: #0b3d6b;
+}
+
+.paginacao-botao:disabled {
+  color: #7b8794;
+  background: #e4e7eb;
+  border-color: #cbd2d9;
+  cursor: not-allowed;
+}
+
+.rodape-do-site {
+  padding: 1rem;
+  text-align: center;
+  color: #52606d;
+}
+
+@media (min-width: 600px) {
+  .grupo-de-botoes-de-aviso {
+    flex-direction: row;
+  }
+
+  .homologacao {
+    grid-template-columns: 9rem 1fr 7rem 12rem;
+    gap: 1rem;
+  }
+
+  .toast-notificacao {
+    right: 1.5rem;
+    bottom: auto;
+    left: auto;
+    top: 1.5rem;
+    min-width: 20rem;
+    max-width: 26rem;
+  }
+}
+
+@media (min-width: 960px) {
+  .cabecalho-do-site h1 {
+    font-size: 2rem;
+  }
+
+  .secao-da-pagina {
+    padding: 1.5rem;
+  }
+}
